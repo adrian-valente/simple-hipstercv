@@ -118,11 +118,15 @@
 
 
 %------------------------------------ pictoFraction
-\newcommand{\icon}[3]{\phantom{x}{#3\color{#2}#1}\phantom{x}}
+\newcommand{\icon}[3]{\phantom{~}{#3\color{#2}#1}\phantom{~}}
 %------------------- pictogram Fraction: pictoFraction
 \newcommand{\pictofraction}[6]{%
+\ifnum#3>0
 \pgfmathparse{#3 - 1}\foreach \n in {0,...,\pgfmathresult}{\icon{#1}{#2}{#6}}%
+\fi
+\ifnum#5>0
 \pgfmathparse{#5 - 1}\foreach \n in {0,...,\pgfmathresult}{\icon{#1}{#4}{#6}}%
+\fi
 }
 
 
